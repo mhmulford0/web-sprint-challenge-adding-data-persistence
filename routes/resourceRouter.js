@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const { getResources } = require("./resourceModel");
+const { getResources, addResources } = require("./resourceModel");
 
 router.get("/", async (req, res) => {
   try {
@@ -11,6 +11,17 @@ router.get("/", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "error" });
+  }
+});
+
+router.post("/", async (req, res) => {
+  const data = req.body;
+  try {
+    await addResources(data);
+    res.status(201).json({ message: "added task" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ messge: "could not add record" });
   }
 });
 

@@ -18,7 +18,8 @@ const getProjectTasks = (id) => {
 const getProjectResources = (id) => {
   return db("project")
     .join("resources", "resources.project_id", "=", "project.id")
-    .select("resources.name", "resources.desc");
+    .select("resources.name", "resources.desc")
+    .where("project.id", id);
 };
 
 const addProject = (data) => {
@@ -36,6 +37,10 @@ const updateProject = (id, data) => {
   });
 };
 
+const deleteProject = (id) => {
+  return db("project").where({ id }).del();
+};
+
 module.exports = {
   getProjects,
   getProject,
@@ -43,4 +48,5 @@ module.exports = {
   getProjectResources,
   addProject,
   updateProject,
+  deleteProject,
 };

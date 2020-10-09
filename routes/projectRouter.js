@@ -9,6 +9,7 @@ const {
   getProjectResources,
   addProject,
   updateProject,
+  deleteProject,
 } = require("./projectModel");
 
 router.get("/", async (req, res) => {
@@ -44,7 +45,7 @@ router.get("/:id/resources", async (req, res) => {
   const { id } = req.params;
 
   try {
-    const projResources = await getProjectResources();
+    const projResources = await getProjectResources(id);
     res.status(200).json({ data: projResources });
   } catch (error) {
     console.log(error);
@@ -73,6 +74,17 @@ router.put("/:id", async (req, res) => {
     res.status(201).json({ message: "project status updated" });
   } catch (error) {
     res.status(500).json({ message: "error updating project" });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await deleteProject(id);
+    res.status(200).json({ message: "project deleted" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "could not delete project" });
   }
 });
 module.exports = router;
