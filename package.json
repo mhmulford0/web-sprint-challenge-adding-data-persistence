@@ -1,0 +1,27 @@
+{
+  "name": "week-2-sprint",
+  "version": "1.0.0",
+  "description": "**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.21.6",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "server": "npx nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhmulford0/web-sprint-challenge-adding-data-persistence.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhmulford0/web-sprint-challenge-adding-data-persistence/issues"
+  },
+  "homepage": "https://github.com/mhmulford0/web-sprint-challenge-adding-data-persistence#readme"
+}
